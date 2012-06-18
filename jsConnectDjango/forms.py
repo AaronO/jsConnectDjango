@@ -64,5 +64,5 @@ class JsConnectForm(forms.Form):
             }
         else:
             response_data['error'] = 'invalid_request'
-            response_data['message'] = self.errors
+            response_data['message'] = 'Invalid Request'
         return response_data
