@@ -33,7 +33,7 @@ class JsConnectForm(forms.Form):
 
     def clean(self, *args, **kwargs):
         cleaned_data = super(JsConnectForm, self).clean(*args, **kwargs)
-        data = cleaned_data['signature']
+        data = cleaned_data.get('signature', '')
         timestamp = cleaned_data.get('timestamp', '')
         secret = cleaned_data['server_secret']
 
@@ -59,5 +59,5 @@ class JsConnectForm(forms.Form):
         # Failure
         else:
             response_data['error'] = 'invalid_request'
-            response_data['message'] = 'Invalid Request'
+            response_data['message'] = self.errors
         return response_data
