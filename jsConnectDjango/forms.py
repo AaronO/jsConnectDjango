@@ -57,7 +57,7 @@ class JsConnectForm(forms.Form):
             response_data = js_connect_sign(user, client_id, secret, secure, True)
 
         # Failure
-        elif not 'signature' in self.cleaned_data and not 'timestamp' in self.cleaned_data:
+        elif not 'signature' in self.data and not 'timestamp' in self.data:
             response_data.update(user)  
         else:
             response_data['error'] = 'invalid_request'
