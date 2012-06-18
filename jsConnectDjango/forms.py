@@ -58,7 +58,10 @@ class JsConnectForm(forms.Form):
 
         # Failure
         elif not 'signature' in self.data and not 'timestamp' in self.data:
-            response_data.update(user)  
+            response_data = {
+                'name' : user.get('name', ''),
+                'photourl' : user.get('photourl', ''),
+            }
         else:
             response_data['error'] = 'invalid_request'
             response_data['message'] = self.errors
