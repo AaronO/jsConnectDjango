@@ -37,7 +37,7 @@ def js_connect_auth_view(request):
 
     # Get data to return from form
     response_data = form.get_response_data(user)
-    callback = None if not is_valid else form.cleaned_data.get('callback', None)
+    callback = form.data.get('callback', None)
 
     return js_connect_response(response_data, callback = callback)
 
