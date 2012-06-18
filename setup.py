@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name = "Django JsConnect",
     version = "0.1",
-    packages = find_packages(),
+    packages = ['jsConnectDjango'],
     include_package_data = True,
 
     author = "Aaron O'Mullane",
